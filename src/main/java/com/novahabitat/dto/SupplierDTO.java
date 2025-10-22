@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class SupplierDTO {
     private int idSupplier;
+
+
     private String name;
     private String ruc;
     private String phone;

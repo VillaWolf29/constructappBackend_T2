@@ -1,5 +1,6 @@
 package com.novahabitat.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,8 +35,9 @@ public class Project {
     @Column(nullable = false)
     private String status; // En elaboracion, En proceso, En ejecución, Parada
 
-    @ManyToOne // FK (Foreign Key)
-    @JoinColumn(name="id_customer", nullable = false, foreignKey = @ForeignKey(name = "FK_PROJECT_CUSTOMER") )
+    @ManyToOne //FK (Foreign Key)
+    @JoinColumn(name = "id_customer", nullable = false)
+    @JsonBackReference
     private Customer customer;
 
     @ManyToOne // FK (Foreign Key)

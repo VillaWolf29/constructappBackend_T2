@@ -1,10 +1,13 @@
 package com.novahabitat.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @NoArgsConstructor // Constructor sin parámetros
 @AllArgsConstructor // Constructor con parametros
@@ -61,4 +64,8 @@ public class Customer {
     public void setName(String name) {
         this.name = name;
     }*/
+
+    @OneToMany(mappedBy = "customer")
+    @JsonManagedReference
+    private List<Project> projects;
 }
